@@ -1,0 +1,26 @@
+SQL> create view empview1
+  2  as select emp.empno, emp.empname, emp.position, emp.salary, mgr.empname as mgrname
+  3  from employee emp
+  4  inner join employee mgr on emp.mgrno = mgr.empno;
+
+
+SQL> select * from empview1;
+
+
+ERROR at line 1:
+ORA-01776: cannot modify more than one base table through a join view
+เพราะตารางมีการ join กันอยู่ ถ้าเราสร้าง view จากตารางเดียวที่ไม่มีการ join จะสามารถเพิ่มข้อมูลลงไปได้
+
+SQL> create or replace view empview1
+  2  as select emp.empno, emp.empname, emp.position, emp.salary, mgr.empname as mgrname
+  3  from employee emp
+  4  inner join employee mgr on emp.mgrno = mgr.empno
+  5  where emp.salary between 20000 and 50000;
+
+
+
+ERROR at line 1:
+ORA-01402: view WITH CHECK OPTION where-clause violation
+เพราะ การเพิ่มข้อมูลลงในตารางนั้นไม่ตรงกับเงื่อนไขที่ตั้งไว้ในตาราง ที่ mgrno = 9002
+
+ถ้าไม่มี index เราก็ต้องสแกนหาข้อมูลที่ละตัวจนกว่าจะเจอ และทำให้เกิดการล่าช้า3

@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Employee Table</title>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.3.js"
+        integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+    <!-- MDB -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.2.0/mdb.min.css" rel="stylesheet" />
+
+    <!-- MDB -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.2.0/mdb.min.js"></script>
+
+    <link href="front-end/css/sb-admin-2.css" rel="stylesheet">
+    <script src="/front-end/index.js"></script>
+    <script src="/backend/server.js"></script>
+    <script src="/front-end/include.js"></script>
+</head>
+
+<body id="page-top">
+
+
+    <div id="header"></div>
+
+
+
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+
+        <!-- Sidebar -->
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+            <!-- Sidebar - Brand -->
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+                <div class="sidebar-brand-icon rotate-n-15">
+                    <i class="fa-sharp fa-solid fa-database"></i>
+                </div>
+                <div class="sidebar-brand-text mx-3">CRUD</div>
+            </a>
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                click
+            </div>
+
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item active">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
+                    aria-expanded="true" aria-controls="collapsePages">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Tables</span>
+                </a>
+                <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Tables :</h6>
+                        <a class="collapse-item" href="/index.html"> <i class="fas fa-fw fa-table"></i>Employee</a>
+                        <a class="collapse-item" href="/front-end/user_login.html"> <i
+                                class="fas fa-fw fa-table"></i>User_login</a>
+                        <!-- <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
+                    <div class="collapse-divider"></div>
+                    <h6 class="collapse-header">Other Pages:</h6>
+                    <a class="collapse-item" href="404.html">404 Page</a>
+                    <a class="collapse-item" href="blank.html">Blank Page</a> -->
+                    </div>
+                </div>
+            </li>
+            <!-- Nav Item - Tables -->
+            <!-- <li class="nav-item active">
+            <a class="nav-link" href="tables.html">
+                <i class="fas fa-fw fa-table"></i>
+                <span>Tables</span></a>
+        </li> -->
+
+            <!-- Divider -->
+            <!-- <hr class="sidebar-divider d-none d-md-block"> -->
+
+            <!-- Sidebar Toggler (Sidebar) -->
+            <div class="text-center d-none d-md-inline">
+                <button class="rounded-circle border-0" id="sidebarToggle"></button>
+            </div>
+
+        </ul>
+        <!-- End of Sidebar -->
+
+
+        <!-- End of Topbar -->
+
+        <!-- Begin Page Content -->
+
+        <div class="container-fluid">
+            <div class="row mt-3">
+                <!-- Area Chart -->
+                <div class="col-xl-6 col-lg-6 ">
+                    <div class="card shadow mb-4">
+                        <!-- Card Header - Dropdown -->
+                        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                            <h6 class="m-0 font-weight-bold text-primary">ตารางพนักงาน</h6>
+                        </div>
+                        <!-- Card Body -->
+                        <div class="card-body">
+                            <p class="mb-4">ตารางนี้เป็นการเก็บข้อมูลของพนักงาน ได้แก่
+                            <ol class="list-group list-group-numbered">
+                                <li class="list-group-item fw-bolder text-primary">EmpID : <font
+                                        class="text-muted fw-normal">
+                                        เก็บ ID
+                                        ของพนักงาน เช่น 1 </font><span
+                                        class="ms-2 badge bg-warning rounded-pill">เก็บเป็นตัวเลข</span></li>
+                                <li class="list-group-item fw-bolder text-primary">EmpName : <font
+                                        class="text-muted fw-normal">
+                                        เก็บ
+                                        ชื่อจริง ของพนักงาน เช่น ปณชัช </font><span
+                                        class="ms-2 badge bg-success rounded-pill">เก็บเป็นข้อความ</span></li>
+                                <li class="list-group-item fw-bolder text-primary">EmpLastname : <font
+                                        class="text-muted fw-normal">
+                                        เก็บ
+                                        นามสกุลของพนักงาน ของพนักงาน เช่น เอี่ยมน้ำ </font><span
+                                        class="ms-2 badge bg-success rounded-pill">เก็บเป็นข้อความ</span></li>
+                                <li class="list-group-item fw-bolder text-primary">EmpAge : <font
+                                        class="text-muted fw-normal">
+                                        เก็บ อายุ
+                                        ของพนักงาน เช่น 20 </font><span
+                                        class="ms-2 badge bg-warning rounded-pill">เก็บเป็นตัวเลข</span>
+                                </li>
+                                <li class="list-group-item fw-bolder text-primary">EmpAdress : <font
+                                        class="text-muted fw-normal">
+                                        เก็บ
+                                        ที่อยู่ ของพนักงาน เช่น 138/2 อ. ท่าซัก </font><span
+                                        class="ms-2 badge bg-success rounded-pill">เก็บเป็นข้อความ</span></li>
+                                <li class="list-group-item fw-bolder text-primary">EmpSalary : <font
+                                        class="text-muted fw-normal">
+                                        เก็บ
+                                        เงินเดือน ของพนักงาน เช่น 30000 </font><span
+                                        class="ms-2 badge bg-warning rounded-pill">เก็บเป็นตัวเลข</span></li>
+                                <li class="list-group-item fw-bolder text-primary">EmpPosition : <font
+                                        class="text-muted fw-normal">
+                                        เก็บ
+                                        ตำแหน่ง ของพนักงาน เช่น โปรแกรมเมอร์ </font><span
+                                        class="ms-2 badge bg-success rounded-pill">เก็บเป็นข้อความ</span></li>
+                                <li class="list-group-item fw-bolder text-primary">Activeflag : <font
+                                        class="text-muted fw-normal">
+                                        เก็บ
+                                        สถานะการใช้งานของผู้เข้าใช้ระบบ 1 หมายความว่า ใช้งาน แต่ถ้าเป็นเลขอื่นจะขึ้นว่า
+                                        ไม่ใช้งาน</font><span
+                                        class="ms-2 badge bg-success rounded-pill">เก็บเป็นข้อความ</span></li>
+                            </ol>
+
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xl-6 col-lg-6">
+                    <div class="card shadow mb-4">
+                        <!-- Card Header - Dropdown -->
+                        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                            <h6 class="m-0 font-weight-bold text-primary">Employee</h6>
+                        </div>
+                        <!-- Card Body -->
+                        <div class="card-body">
+                            <img src="https://media.istockphoto.com/id/1191877809/vector/vector-of-two-managers-with-magnifying-glass-watching-over-at-employee-working-at-his-desk.jpg?s=612x612&w=0&k=20&c=C6KFcF_-RHG62SU4nq8ZjLl5whEFbHV5ZFWobLWKc38="
+                                alt="" style="width: 99%;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+            <!-- DataTales Example -->
+            <div class="card shadow mb-4">
+                <div class="card-header py-3 d-flex">
+                    <h5 class="mb-0"><i class="fas fa-tasks me-2"></i>Employee Data</h5>
+                    <button class="btn btn-primary ms-auto" onclick="CreateBox()">
+                        <li class="fa-solid fa-plus"></li> Add Data
+                    </button>
+                </div>
+                <div class="card-body text-center">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Name</th>
+                                    <th>Lastname</th>
+                                    <th>Age</th>
+                                    <th>Adress</th>
+                                    <th>Salary</th>
+                                    <th>Position</th>
+                                    <th>Activeflag</th>
+                                    <th>Option</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- /.container-fluid -->
+
+    </div>
+    <!-- End of Main Content -->
+
+    <!-- Footer -->
+    <div id="footer"></div>
+    <!-- End of Footer -->
+
+    </div>
+    <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+
+    <!-- Bootstrap core JavaScript-->
+
+    <script src="/front-end/vendor/jquery/jquery.min.js"></script>
+
+    <script src="/front-end/vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="/front-end/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="/front-end/js/sb-admin-2.min.js"></script>
+
+
+</body>
+
+</html>
